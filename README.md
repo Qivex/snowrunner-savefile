@@ -7,10 +7,11 @@ I consider myself a completionist when it comes to gaming. [SnowRunner](https://
 ## Inspiration
 - [Maprunner.info Save Editor](https://www.maprunner.info/resources/save-editor) (only includes very basic values)
 - [Control Save Editor](https://www.nexusmods.com/control/mods/26) was the first save editor I ever used to check for 100%
-- [Noclip](https://noclip.website/) by (Jasper)[https://www.youtube.com/@JasperRLZ] made me think I could maybe visualize the mud
+- [Noclip](https://noclip.website/) by [Jasper](https://www.youtube.com/@JasperRLZ) made me think I could maybe visualize the mud
 
 ## Goals
-Summary: Display, explain and edit savefiles
+### Summary
+Display, explain and edit savefiles
 ### Basic
 - Slot selection
 - Group information by region or type
@@ -32,7 +33,7 @@ Summary: Display, explain and edit savefiles
 
 ## Dependencies
 - [Vite](https://vitejs.dev/) with [Vue](https://vuejs.org/) as plugin
-- A minimal [zlib implementation for JS](https://github.com/imaya/zlib.js) (MIT License)
+- A minimal [zlib implementation for JS](https://github.com/imaya/zlib.js) by [imaya](https://github.com/imaya) (MIT license)
 
 ## Build
 0. Install [npm](https://docs.npmjs.com/about-npm-versions) (included in Node.js)
