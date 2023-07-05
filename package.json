@@ -4,13 +4,13 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"prev": "vite preview"
+		"prev": "vite preview --host"
 	},
 	"dependencies": {
-		"vue": "^3.2.37"
+		"vue": "^3.3.4"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-vue": "^2.3.3",
-		"vite": "^2.9.12"
+		"vite": "^2.9.16"
 	}
 }

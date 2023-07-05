@@ -1,15 +1,11 @@
 <template>
-	<OverviewTab/>
+	<p>Nothing yet</p>
 </template>
 
 <script>
-import OverviewTab from "../components/OverviewTab.vue"
-
 export default {
-	name: "IndexApp",
-	components: {
-		OverviewTab
-	},
+	name: "EditorTab",
+	components: {},
 	mounted() {}
 }
 </script>
