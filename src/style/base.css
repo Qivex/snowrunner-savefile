@@ -1,5 +1,5 @@
 body {
-	position: fixed; /* Fixes shifting viewport on mobile (https://stackoverflow.com/a/68359419) */
+	/*position: fixed;*/ /* Fixes shifting viewport on mobile (https://stackoverflow.com/a/68359419) */
 	height: 100%;
 	width: 100%;
 	margin: 0px;

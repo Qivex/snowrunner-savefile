@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import {decodeFogFile} from "../tools/decode.js"
+import {decodeFogFile} from "../decode/fog.js"
 
 export default {
 	name: "FogMap",
@@ -27,8 +27,10 @@ export default {
 		}
 	},
 	mounted() {
+		let start = Date.now()
 		decodeFogFile(this.fogfile)
 			.then(url => this.imgurl = url)
+			.then(() => console.log(this.fogfile.name, Date.now() - start))
 			.catch(e => console.log(e))
 	}
 }
