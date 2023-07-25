@@ -1,17 +1,18 @@
 <template>
-	<input type="file" accept=".cfg" multiple @change="onFileSelect"/>
+	<input type="file" accept=".cfg,.pct" multiple @change="onFileSelect"/>
 	<div class="fogmaps">
 		<div v-for="file in fogfiles">
 			<FogMap :fogfile="file"/>
 		</div>
 	</div>
-	<div class="ddsgrid">
+	<div class="ddsgrid" v-if="ddsimgs.length > 0">
 		<img v-for="dds in ddsimgs" :src="dds" class="dds"/>
 	</div>
-	<div class="mudgrid">
+	<div class="mudgrid" v-if="mudtiles.length > 0">
 		<img v-for="mud in mudtiles" :src="mud.url" :style="mud.style" class="mud"/>
 	</div>
 	<img v-for="sts in stsimgs" :src="sts" class="sts"/>
+	<img v-if="pct" :src="pct" class="pct"/>
 </template>
 
 <script>
@@ -20,6 +21,7 @@ import FogMap from "../components/FogMap.vue"
 import {decodeDDSFile} from "../decode/dds.js"
 import {decodeSTSFile} from "../decode/sts.js"
 import {decodeMudMaps} from "../decode/mud.js"
+import {decodePCTFile} from "../decode/pct.js"
 
 export default {
 	name: "OverviewTab",
@@ -31,7 +33,8 @@ export default {
 			fogfiles: [],
 			ddsimgs: [],
 			stsimgs: [],
-			mudtiles: []
+			mudtiles: [],
+			pct: undefined
 		}
 	},
 	methods: {
@@ -45,7 +48,13 @@ export default {
 							this.ddsimgs[img] = url
 						})
 						.catch(e => console.log(e))
+				} else if (file.name.endsWith(".pct")) {
+					decodePCTFile(file)
+						.then(url => {
+							this.pct = url
+						})
 				} else if (file.name.startsWith("sts_mudmaps_")) {
+					// Todo: These are also mirrored, just like fog & pct
 					decodeMudMaps(file)
 						.then(mudTiles => {
 							console.log(mudTiles.length)
@@ -121,5 +130,11 @@ body {
 
 .sts {
 	image-rendering: pixelated;
+}
+
+.pct {
+	image-rendering: pixelated;
+	max-width: 100%;
+	margin: 2rem auto;
 }
 </style>
