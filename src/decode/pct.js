@@ -1,13 +1,17 @@
 import {imageData2ObjectURL} from "./png.js"
 
-/* Mutliple blocks of format: 16bit opcode, followed by respective content
+/* Mutliple blocks of format:
+- 16bit opcode
+- 32bit end of block (absolute offset from file start)
+- respective content
+
 0x00F0 {
-	int16	offsetNextOpcode = 10
-	char[4]	magicNumber = "PICT"
+	int32	blockEnd = 10
+	char[4]	magicNumber = "TCIP"	// PICT reversed
 }
 
 0x0102 {
-	int32 unknown = 32
+	int32 blockEnd = 32
 	int32 width
 	int32 height
 	int32 unknown = 1
@@ -15,28 +19,28 @@ import {imageData2ObjectURL} from "./png.js"
 }
 
 0x00F2 {
-	int32 unknown = 42
+	int32 blockEnd = 42
 	int32 unknown
 }
 
 0x00F9 {
-	int32 unknown = 52
+	int32 blockEnd = 52
 	int32 unknown = 1
 }
 
 0x0107 {
-	int32 headerLength = 66	// length of all blocks before 0x00FF ("read file up to this byte")
+	int32 blockEnd = 66
 	int32 unknown = 0
 	int32 dataLength
 }
 
 0x00FF {
-	int32 contentLength = 72 + dataLength	// length of all blocks before 0x0001 ("read file up to this byte")
+	int32 blockEnd = 72 + dataLength
 	char[dataLength] imagedata
 }
 
 0x0001 {
-	int32 totalFilesize = 78 + dataLength
+	int32 blockEnd = 78 + dataLength
 }
 */
 
