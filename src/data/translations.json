@@ -1,0 +1,18 @@
+{
+	"en": {
+		"test_string": "This is a test string with some length to test content that might wrap to multiple lines.",
+		"test_title": "Test title",
+		"test_multi": "{} and {} and {}",
+		"label_groupby": "Group by:",
+		"opt_region": "Region",
+		"opt_feature": "Feature"
+	},
+	"de": {
+		"test_string": "Dies ist ein Text der nur zum Testen verwendet wird und möglicherweise mehr als eine Zeile einnimmt.",
+		"test_title": "Test Überschrift",
+		"test_multi": "{} und {} und {}",
+		"label_groupby": "Sortieren nach:",
+		"opt_region": "Region",
+		"opt_feature": "Merkmal"
+	}
+}

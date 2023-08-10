@@ -1,4 +1,15 @@
 <template>
+	<div>
+	<TabSelect :tabnames="['a','b','c','d']">
+		<div>a</div>
+		<TabSelect :tabnames="['b1','b2','b3']">
+			<div>b1</div>
+			<div>b2</div>
+			<div>b3</div>
+		</TabSelect>
+		<div>c</div>
+		<div>d</div>
+	</TabSelect>
 	<input type="file" accept=".cfg,.pct" multiple @change="onFileSelect"/>
 	<div class="fogmaps">
 		<div v-for="file in fogfiles">
@@ -13,10 +24,12 @@
 	</div>
 	<img v-for="sts in stsimgs" :src="sts" class="sts"/>
 	<img v-if="pct" :src="pct" class="pct"/>
+	</div>
 </template>
 
 <script>
 import FogMap from "../components/FogMap.vue"
+import TabSelect from "../components/TabSelect.vue"
 
 import {decodeDDSFile} from "../decode/dds.js"
 import {decodeSTSFile} from "../decode/sts.js"
@@ -24,9 +37,10 @@ import {decodeMudMaps} from "../decode/mud.js"
 import {decodePCTFile} from "../decode/pct.js"
 
 export default {
-	name: "OverviewTab",
+	name: "SummaryView",
 	components: {
-		FogMap
+		FogMap,
+		TabSelect
 	},
 	data() {
 		return {
@@ -34,7 +48,11 @@ export default {
 			ddsimgs: [],
 			stsimgs: [],
 			mudtiles: [],
-			pct: undefined
+			pct: undefined,
+			options: [
+				"Region",
+				"Type"
+			]
 		}
 	},
 	methods: {
@@ -83,12 +101,6 @@ export default {
 </script>
 
 <style>
-@import url(../style/base.css);
-
-body {
-	background-color: #bbb;
-}
-
 .fogmaps {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 160px);

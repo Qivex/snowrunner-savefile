@@ -4,12 +4,11 @@
 
 <script>
 export default {
-	name: "EditorTab",
+	name: "EditorView",
 	components: {},
 	mounted() {}
 }
 </script>
 
 <style>
-@import url(../style/base.css);
 </style>
