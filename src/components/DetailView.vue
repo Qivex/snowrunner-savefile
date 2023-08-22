@@ -1,11 +1,17 @@
 <template>
-	<p>Nothing yet</p>
+	<Panel>
+		<p>Detail View</p>
+	</Panel>
 </template>
 
 <script>
+import Panel from "./Panel.vue"
+
 export default {
-	name: "DetailTab",
-	components: {},
+	name: "DetailView",
+	components: {
+		Panel
+	},
 	mounted() {}
 }
 </script>

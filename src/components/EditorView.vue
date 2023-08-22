@@ -1,11 +1,17 @@
 <template>
-	<p>Nothing yet</p>
+	<Panel>
+		<p>Editor View</p>
+	</Panel>
 </template>
 
 <script>
+import Panel from "./Panel.vue"
+
 export default {
 	name: "EditorView",
-	components: {},
+	components: {
+		Panel
+	},
 	mounted() {}
 }
 </script>

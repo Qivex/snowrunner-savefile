@@ -1,35 +1,36 @@
 <template>
-	<div>
-	<TabSelect :tabnames="['a','b','c','d']">
-		<div>a</div>
-		<TabSelect :tabnames="['b1','b2','b3']">
-			<div>b1</div>
-			<div>b2</div>
-			<div>b3</div>
+	<Panel>
+		<TabSelect :tabnames="['a','b','c','d']">
+			<div>a</div>
+			<TabSelect :tabnames="['b1','b2','b3']">
+				<div>b1</div>
+				<div>b2</div>
+				<div>b3</div>
+			</TabSelect>
+			<div>c</div>
+			<div>d</div>
 		</TabSelect>
-		<div>c</div>
-		<div>d</div>
-	</TabSelect>
-	<input type="file" accept=".cfg,.pct" multiple @change="onFileSelect"/>
-	<div class="fogmaps">
-		<div v-for="file in fogfiles">
-			<FogMap :fogfile="file"/>
+		<input type="file" accept=".cfg,.pct" multiple @change="onFileSelect"/>
+		<div class="fogmaps">
+			<div v-for="file in fogfiles">
+				<FogMap :fogfile="file"/>
+			</div>
 		</div>
-	</div>
-	<div class="ddsgrid" v-if="ddsimgs.length > 0">
-		<img v-for="dds in ddsimgs" :src="dds" class="dds"/>
-	</div>
-	<div class="mudgrid" v-if="mudtiles.length > 0">
-		<img v-for="mud in mudtiles" :src="mud.url" :style="mud.style" class="mud"/>
-	</div>
-	<img v-for="sts in stsimgs" :src="sts" class="sts"/>
-	<img v-if="pct" :src="pct" class="pct"/>
-	</div>
+		<div class="ddsgrid" v-if="ddsimgs.length > 0">
+			<img v-for="dds in ddsimgs" :src="dds" class="dds"/>
+		</div>
+		<div class="mudgrid" v-if="mudtiles.length > 0">
+			<img v-for="mud in mudtiles" :src="mud.url" :style="mud.style" class="mud"/>
+		</div>
+		<img v-for="sts in stsimgs" :src="sts" class="sts"/>
+		<img v-if="pct" :src="pct" class="pct"/>
+	</Panel>
 </template>
 
 <script>
-import FogMap from "../components/FogMap.vue"
-import TabSelect from "../components/TabSelect.vue"
+import Panel from "./Panel.vue"
+import FogMap from "./FogMap.vue"
+import TabSelect from "./TabSelect.vue"
 
 import {decodeDDSFile} from "../decode/dds.js"
 import {decodeSTSFile} from "../decode/sts.js"
@@ -39,6 +40,7 @@ import {decodePCTFile} from "../decode/pct.js"
 export default {
 	name: "SummaryView",
 	components: {
+		Panel,
 		FogMap,
 		TabSelect
 	},
