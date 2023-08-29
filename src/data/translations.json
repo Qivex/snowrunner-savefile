@@ -14,7 +14,11 @@
 		"opt_slot4": "Slot 4",
 		"label_groupby": "Group by:",
 		"opt_region": "Region",
-		"opt_feature": "Feature"
+		"opt_feature": "Feature",
+		"select_files": "Select files for upload",
+		"file_count": "{} files chosen",
+		"err_unexpected_types": "Unexpected Filetypes: {} (works only with .cfg or .zip files)",
+		"err_zip_corrupted": "Zipped file is corrupt and can't be unzipped"
 	},
 	"de": {
 		"test_string": "Dies ist ein Text der nur zum Testen verwendet wird und möglicherweise mehr als eine Zeile einnimmt.",
@@ -31,6 +35,10 @@
 		"opt_slot4": "Slot 4",
 		"label_groupby": "Sortieren nach:",
 		"opt_region": "Region",
-		"opt_feature": "Merkmal"
+		"opt_feature": "Merkmal",
+		"select_files": "Wähle Dateien zum Hochladen",
+		"file_count": "{} Dateien ausgewählt",
+		"err_unexpected_types": "Unerwartete Dateitypen: {} (funktioniert nur mit .cfg oder .zip Dateien)",
+		"err_zip_corrupted": "Gepackte Datei ist korrupt und lässt sich nicht entpacken"
 	}
 }

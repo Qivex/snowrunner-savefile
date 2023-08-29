@@ -14,6 +14,11 @@
 		</div>
 	</nav>
 	<main>
+		<Panel class="error" v-if="errors.length > 0">
+			<ul>
+				<li v-for="msg in errors">{{msg}}</li>
+			</ul>
+		</Panel>
 		<component :is="viewComponent"/>
 	</main>
 	<footer v-if="!isDesktop">
@@ -46,14 +51,15 @@ export default {
 		return {
 			isDesktop: window.matchMedia("(any-pointer: fine)").matches,
 			currentSlot: "slot1",
-			currentView: "summary",
+			currentView: "upload",
 			currentGrouping: "region",
-			views: ["summary", "details", "editor"]
+			errors: []
 		}
 	},
 	computed: {
 		viewComponent() {
 			const mapping = {
+				upload: "UploadView",
 				summary: "SummaryView",
 				details: "DetailView",
 				editor: "EditorView"
@@ -70,13 +76,21 @@ export default {
 		},
 		selectGrouping(newGrouping) {
 			this.currentGrouping = newGrouping
+		},
+		appendError(msg) {
+			this.errors.push(msg)
+		},
+		clearErrors() {
+			this.errors = []
 		}
 	},
 	provide() {
 		return {
 			selectSlot: this.selectSlot,
 			selectView: this.selectView,
-			selectGrouping: this.selectGrouping
+			selectGrouping: this.selectGrouping,
+			appendError: this.appendError,
+			clearErrors: this.clearErrors
 		}
 	},
 	mounted() {
